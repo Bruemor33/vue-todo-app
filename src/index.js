@@ -1,6 +1,6 @@
-// import Vue from 'vue';
+import Vue from 'vue';
 
-var vue = require('vue');
+// var vue = require('vue');
 
 const app = new Vue({
     el: '#app',

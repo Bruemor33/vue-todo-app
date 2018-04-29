@@ -16,6 +16,7 @@ module.exports = {
                 }
             },
             {
+                enforece: 'post',
                 test: /\.css$/,
                 use: [
                     {
@@ -32,6 +33,35 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'postcss-loader', 'sass-loader'
+                ]
+            },
+            {
+                enforce: 'post',
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            modules: true,
+                            importLoaders: 1,
+                            localIdentName: '[name]_[local]_[hash:base64]',
+                            sourceMap: true,
+                            minimize: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                use: 'vue-template-loader'
             }
         ]
     },
